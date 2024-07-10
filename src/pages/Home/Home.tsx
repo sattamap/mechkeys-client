@@ -1,9 +1,12 @@
+import Footer from "@/components/Common/Footer";
+import Navbar from "@/components/Common/Navbar";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>This is my Home</h2>
+            <Navbar></Navbar>
+            <Footer></Footer>
         </div>
     );
 };
