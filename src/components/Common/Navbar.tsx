@@ -2,144 +2,84 @@ import React from "react";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Link, NavLink } from "react-router-dom";
-import { NavigationMenu, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
-//import { useSelector } from "react-redux";
-//import { RootState } from "@/store"; // Adjust the import path as necessary
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store"; // Adjust the import path
+import { Badge } from "../ui/badge";
+
 interface IconProps {
   className?: string;
 }
 
 const Navbar: React.FC = () => {
-  //const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
   const cartItemCount = useSelector((state: RootState) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
+
   return (
-    <header className="flex h-24 w-full items-center px-4 md:px-6 sticky top-0 z-30 bg-slate-200">
-           <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
-              <MenuIcon className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left">
-            <Link to="/" className="flex items-center">
-              <MountainIcon className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
-            </Link>
-            <div className="grid gap-2 py-6">
-              <NavLink to="/" className="flex w-full items-center py-2 text-lg font-semibold">
-                Home
+    <header className="flex h-24 w-full items-center px-4 md:px-6 sticky top-0 z-30 bg-white shadow-md">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="outline" size="icon" className="lg:hidden">
+            <MenuIcon className="h-6 w-6" />
+            <span className="sr-only">Toggle navigation menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <Link to="/" className="flex items-center">
+            <MountainIcon className="h-6 w-6 text-primary" />
+            <span className="sr-only">MechKeys</span>
+          </Link>
+          <div className="grid gap-2 py-6">
+            {['Home', 'Products', 'Carts', 'About Us', 'Contact Us', 'Dashboard'].map((page) => (
+                <NavLink
+                key={page}
+                to={page === 'home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '-')}`}
+                className="flex w-full items-center py-2 text-lg font-semibold text-primary"
+              >
+                {page}
               </NavLink>
-              <NavLink to="/products" className="flex w-full items-center py-2 text-lg font-semibold">
-                Products
-              </NavLink>
-              <NavLink to="/about-us" className="flex w-full items-center py-2 text-lg font-semibold">
-                About Us
-              </NavLink>
-              <NavLink to="/contact-us" className="flex w-full items-center py-2 text-lg font-semibold">
-                Contact Us
-              </NavLink>
-              <NavLink to="/dashboard" className="flex w-full items-center py-2 text-lg font-semibold">
-                Dashboard
-              </NavLink>
-            </div>
-          </SheetContent>
-        </Sheet>
+            ))}
+          </div>
+        </SheetContent>
+      </Sheet>
       <Link to="/" className="ml-4 flex items-center">
-        <MountainIcon className="h-6 w-6" />
-        <span className="ml-2 text-xl font-bold">MechKeys</span>
+        <MountainIcon className="h-6 w-6 text-primary" />
+        <span className="ml-2 text-xl font-bold text-primary">MechKeys</span>
       </Link>
       <div className="flex w-full justify-center">
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                Home
-              </NavLink>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/products"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                Products
-              </NavLink>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/carts"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                Carts
-              </NavLink>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/about-us"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                About Us
-              </NavLink>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/contact-us"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                Contact Us
-              </NavLink>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <NavLink
-                to="/dashboard"
-                className={({ isActive }) =>
-                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
-                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                Dashboard
-              </NavLink>
-            </NavigationMenuLink>
+            {['Home', 'Products', 'Carts', 'About Us', 'Contact Us', 'Dashboard'].map((page) => (
+              <NavigationMenuLink asChild key={page}>
+                <NavLink
+                  to={page === 'Home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '-')}`}
+                  className={({ isActive }) =>
+                    `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive
+                        ? "bg-gray-100 text-primary"
+                        : "bg-white text-dark hover:bg-gray-100 hover:text-primary"
+                    }`
+                  }
+                >
+                  {page}
+                </NavLink>
+              </NavigationMenuLink>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="ml-auto flex items-center">
-        <NavLink to="/cart" className="relative flex items-center">
-          <CartIcon className="h-6 w-6" />
-          {/* <span className="absolute top-0 right-0 inline-flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+      <div className="flex items-center mr-2 lg:mr-6">
+        <NavLink to="/carts" className="relative inline-block">
+          <CartIcon className="h-6 w-6 text-primary" />
+          <Badge className="absolute -top-4 -right-3 bg-primary text-white rounded-full px-2 py-0.5 text-xs font-medium">
             {cartItemCount}
-          </span> */}
-          {cartItemCount}
+          </Badge>
         </NavLink>
-     
       </div>
     </header>
   );
