@@ -41,6 +41,19 @@ export const baseApi = createApi({
         method: 'GET',
       }),
     }),
+    updateProduct: builder.mutation({
+      query: ({ id, ...rest }) => ({
+        url: `/api/products/${id}`,
+        method: 'PATCH',
+        body: rest,
+      }),
+    }),
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `/api/products/${id}`,
+        method: 'DELETE',
+      }),
+    }),
     addToCart: builder.mutation({
       query: ({ productId, quantity }) => ({
         url: '/api/carts',
@@ -69,7 +82,7 @@ export const baseApi = createApi({
     }),
     placeOrder: builder.mutation({
       query: (orderDetails) => ({
-        url: '/api/orders', // Adjust endpoint URL as per your backend setup
+        url: '/api/orders',
         method: 'POST',
         body: orderDetails,
       }),
@@ -82,6 +95,8 @@ export const {
   useCreateProductMutation,
   useGetProductsQuery,
   useGetProductByIdQuery,
+  useUpdateProductMutation,
+  useDeleteProductMutation,
   useAddToCartMutation,
   useGetCartQuery,
   useUpdateCartMutation,

@@ -48,7 +48,7 @@ const FormSchema = z.object({
   image: z.any(),
 });
 
-const AddProductForm: React.FC = () => {
+const AddProduct: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -230,4 +230,4 @@ const AddProductForm: React.FC = () => {
   );
 };
 
-export default AddProductForm;
+export default AddProduct;
