@@ -14,7 +14,7 @@ interface Product {
 }
 
 const ProductList: React.FC = () => {
-  const { data: products, error, isLoading } = useGetProductsQuery({});
+  const { data: products, error, isLoading,refetch  } = useGetProductsQuery({});
   const [deleteProduct] = useDeleteProductMutation();
   //const [updateProduct] = useUpdateProductMutation();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -35,9 +35,11 @@ const ProductList: React.FC = () => {
 
   const confirmDelete = () => {
     if (selectedProduct) {
-      console.log('Deleting product with id:', selectedProduct._id); // Debugging log
       deleteProduct(selectedProduct._id).then(() => {
+        refetch(); // Refetch the product list after deletion
         setIsConfirmationModalOpen(false);
+      }).catch((error) => {
+        console.error('Failed to delete product:', error); // Error log
       });
     } else {
       console.error('No product selected for deletion'); // Error log
@@ -77,6 +79,7 @@ const ProductList: React.FC = () => {
           product={selectedProduct}
           isOpen={isUpdateModalOpen}
           onClose={() => setIsUpdateModalOpen(false)}
+          onSuccess={() => refetch()}
         />
       )}
       {isConfirmationModalOpen && selectedProduct && (

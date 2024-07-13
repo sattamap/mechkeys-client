@@ -5,6 +5,8 @@ import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogD
 import { Button } from "@/components/ui/button";
 import { useUpdateProductMutation } from '@/redux/api/api';
 
+
+
 interface UpdateProductModalProps {
     product: {
       _id: string; // Ensure 'id' is expected in 'product'
@@ -15,6 +17,7 @@ interface UpdateProductModalProps {
     };
     isOpen: boolean;
     onClose: () => void;
+    onSuccess?: () => void;
   }
 
 interface IFormInput {
@@ -23,7 +26,7 @@ interface IFormInput {
   brand: string;
 }
 
-const UpdateProductModal: React.FC<UpdateProductModalProps> = ({ product, isOpen, onClose }) => {
+const UpdateProductModal: React.FC<UpdateProductModalProps> = ({ product, isOpen, onClose,onSuccess }) => {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
     defaultValues: {
       name: product.name,
@@ -35,10 +38,12 @@ const UpdateProductModal: React.FC<UpdateProductModalProps> = ({ product, isOpen
 
 
   const onSubmit: SubmitHandler<IFormInput> = data => {
-    console.log('Updating product with id:', product._id); // Debugging log
+    console.log('Updating product with id:', product._id); 
     updateProduct({ id: product._id, ...data });
+    if (onSuccess) onSuccess(); 
     onClose();
-  };
+};
+
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
