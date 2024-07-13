@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import kbd from '../../assets/images/kbd-3.jpg';
 import { Button } from '@/components/ui/button';
+import Typewriter from 'typewriter-effect';
 
 interface HeroProps {}
 
@@ -16,9 +17,18 @@ const Hero: React.FC<HeroProps> = () => {
           <h1 className="text-6xl md:text-5xl lg:text-6xl font-extrabold text-black p-4 animate-fade-in-up">
             Welcome to Our Platform
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl text-black font-bold animate-fade-in-up delay-1s">
-            We provide the best service for you
+          <div className='flex gap-1 justify-center text-xl md:text-2xl lg:text-3xl text-black font-bold'>
+          <p className="">
+            We provide 
           </p>
+          <Typewriter
+                               options={{
+                                   strings: ['the best product for you','the best experience for you.','the best service for you'],
+                                   autoStart: true,
+                                   loop: true,
+                               }}
+                           /> 
+          </div>
           <Link to="products">
             <Button
               variant="default"
