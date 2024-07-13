@@ -3,8 +3,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-12 md:py-24">
-      <div className="container">
+    <section className=" bg-slate-200 rounded-xl p-10 m-20 md:m-40">
+      <div className="container  bg-white p-16 rounded-xl">
         <div className="flex flex-col items-center justify-center">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">What Our Customers Say</h2>
           <p className="mb-12 max-w-md text-center text-gray-500 dark:text-gray-400">
@@ -46,11 +46,11 @@ const Testimonials: React.FC = () => {
                 </div>
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-gray-800 shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
-              <ChevronLeftIcon className="h-6 w-6" />
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
+              <ChevronLeftIcon className="h-8 w-8" />
             </CarouselPrevious>
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-gray-800 shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
-              <ChevronRightIcon className="h-6 w-6" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
+              <ChevronRightIcon className="h-8 w-8" />
             </CarouselNext>
           </Carousel>
         </div>
