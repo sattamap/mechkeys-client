@@ -5,16 +5,19 @@ import { Link, NavLink } from "react-router-dom";
 import { NavigationMenu, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
 //import { useSelector } from "react-redux";
 //import { RootState } from "@/store"; // Adjust the import path as necessary
-
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store"; // Adjust the import path
 interface IconProps {
   className?: string;
 }
 
 const Navbar: React.FC = () => {
   //const cartItemCount = useSelector((state: RootState) => state.cart.items.length);
-
+  const cartItemCount = useSelector((state: RootState) =>
+    state.cart.items.reduce((total, item) => total + item.quantity, 0)
+  );
   return (
-    <header className="flex h-20 w-full items-center px-4 md:px-6">
+    <header className="flex h-24 w-full items-center px-4 md:px-6 sticky top-0 z-30 bg-slate-200">
            <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="lg:hidden">
@@ -79,6 +82,18 @@ const Navbar: React.FC = () => {
             </NavigationMenuLink>
             <NavigationMenuLink asChild>
               <NavLink
+                to="/carts"
+                className={({ isActive }) =>
+                  `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive ? "bg-gray-100 text-gray-900" : "bg-white hover:bg-gray-100 hover:text-gray-900"
+                  }`
+                }
+              >
+                Carts
+              </NavLink>
+            </NavigationMenuLink>
+            <NavigationMenuLink asChild>
+              <NavLink
                 to="/about-us"
                 className={({ isActive }) =>
                   `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
@@ -122,6 +137,7 @@ const Navbar: React.FC = () => {
           {/* <span className="absolute top-0 right-0 inline-flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
             {cartItemCount}
           </span> */}
+          {cartItemCount}
         </NavLink>
      
       </div>
