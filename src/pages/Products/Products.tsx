@@ -56,8 +56,8 @@ const Products: React.FC = () => {
   }
 
   return (
-    <div className="p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+    <div className="p-6 mx-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <input
           type="text"
           placeholder="Search by name"
@@ -97,13 +97,20 @@ const Products: React.FC = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product: Product) => (
-          <Card key={product._id} className="shadow-lg">
+          <Card
+            key={product._id}
+            className="shadow-lg group transition-transform duration-300 hover:scale-105"
+          >
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>
               <CardDescription>{product.brand}</CardDescription>
             </CardHeader>
-            <div className="h-56">
-              <img src={product.image} alt={product.name} className="mx-auto object-cover border rounded-lg h-full w-5/6" />
+            <div className="h-56 overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="mx-auto object-cover border rounded-lg h-full w-5/6 transition-transform duration-300 group-hover:scale-125"
+              />
             </div>
             <CardContent>
               <p className="text-lg font-semibold mt-2">${product.price}</p>
