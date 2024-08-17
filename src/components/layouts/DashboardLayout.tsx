@@ -17,13 +17,13 @@ const DashboardLayout: React.FC = () => {
               <TooltipTrigger asChild>
                 <Link
                   to="/dashboard/product-list"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
+                  className=" flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <ProductListIcon className="h-5 w-5" />
-                  <span className="sr-only">Product List</span>
+                  <span className="sr-only ">Product List</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Product List</TooltipContent>
+              <TooltipContent  side="right">Product List</TooltipContent>
             </Tooltip>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -41,13 +41,13 @@ const DashboardLayout: React.FC = () => {
         </nav>
       </aside>
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+        <header className="sticky top-0 z-20 md:z-0 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
           <div className="flex items-center gap-4">
             <Link
               to="/"
-              className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+              className=" group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
             >
-              <HomeIcon className="h-4 w-4 transition-all group-hover:scale-110" />
+              <HomeIcon className=" h-4 w-4 transition-all group-hover:scale-110" />
               <span className="sr-only">Dashboard</span>
             </Link>
             <div className="text-lg font-medium">Dashboard</div>

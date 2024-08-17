@@ -71,10 +71,10 @@ const Featured: React.FC = () => {
         >
           {featuredProducts?.map((product: Product) => (
             <SwiperSlide key={product._id}>
-              <Card className="bg-white p-6 rounded-lg shadow-md">
+              <Card className="bg-white p-1 rounded-lg shadow-md">
                 <CardHeader>
                   <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
-                  <CardTitle className="text-lg font-bold mb-2">{product.name}</CardTitle>
+                  <CardTitle className="text-sm font-bold mb-2">{product.name}</CardTitle>
                   <CardDescription className="text-sm text-gray-500 mb-1">Brand: {product.brand}</CardDescription>
                 </CardHeader>
                 <CardContent>

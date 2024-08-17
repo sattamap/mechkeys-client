@@ -46,17 +46,12 @@ const ProductDetails: React.FC = () => {
     <div className="p-6">
       {product ? (
         <Card className="shadow-lg">
-          <CardHeader>
+      <div className="flex flex-col md:flex-row items-center justify-between md:gap-10">
+      <div className="flex-1 order-2 md:order-1">
+         <CardHeader>
             <CardTitle>{product.name}</CardTitle>
             <CardDescription>{product.brand}</CardDescription>
           </CardHeader>
-          <div className="h-48 bg-gray-200">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="object-cover h-full w-full"
-            />
-          </div>
           <CardContent>
             <p className="text-lg font-semibold">${product.price}</p>
             <div className="text-yellow-500">
@@ -82,7 +77,7 @@ const ProductDetails: React.FC = () => {
             >
               {product.quantity > 0 ? "In Stock" : "Out of Stock"}
             </p>
-            <p>{product.description}</p>
+            <p className="text-justify">{product.description}</p>
           </CardContent>
           <CardFooter>
             <Button
@@ -94,6 +89,16 @@ const ProductDetails: React.FC = () => {
             </Button>
             {error && <p className="text-red-500 mt-2 ">{error}</p>}
           </CardFooter>
+         </div>
+
+          <div className=" flex-1 order-1 md:order-2 p-4">
+            <img
+              src={product.image}
+              alt={product.name}
+              className=" object-cover border rounded-lg"
+            />
+          </div>
+      </div>
         </Card>
       ) : (
         <p>Product not found.</p>

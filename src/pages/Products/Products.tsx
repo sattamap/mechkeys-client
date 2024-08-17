@@ -57,7 +57,7 @@ const Products: React.FC = () => {
 
   return (
     <div className="p-6">
-      <div className="mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         <input
           type="text"
           placeholder="Search by name"
@@ -102,11 +102,11 @@ const Products: React.FC = () => {
               <CardTitle>{product.name}</CardTitle>
               <CardDescription>{product.brand}</CardDescription>
             </CardHeader>
-            <div className="h-48 bg-gray-200">
-              <img src={product.image} alt={product.name} className="object-cover h-full w-full" />
+            <div className="h-56">
+              <img src={product.image} alt={product.name} className="mx-auto object-cover border rounded-lg h-full w-5/6" />
             </div>
             <CardContent>
-              <p className="text-lg font-semibold">${product.price}</p>
+              <p className="text-lg font-semibold mt-2">${product.price}</p>
               <div className="text-yellow-500">
                 {Array.from({ length: product.rating }, (_, i) => (
                   <span key={i} className="inline-block">&#9733;</span>

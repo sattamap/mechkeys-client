@@ -1,13 +1,20 @@
-// Checkout.tsx
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { usePlaceOrderMutation } from '@/redux/api/api';
+import { useGetCartQuery, useUpdateProductMutation, useRemoveFromCartMutation, usePlaceOrderMutation } from '@/redux/api/api';
+import Swal from 'sweetalert2';
 
-// interface CheckoutProps {
-//   totalPrice: number; // Pass total price from Cart or wherever it's calculated
-// }
+
+interface CartItem {
+    product: {
+      _id: string;
+      name: string;
+      price: number;
+      quantity: number;
+    };
+    quantity: number;
+  }
+  
 
 const Checkout: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +25,10 @@ const Checkout: React.FC = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const { data: cartItems } = useGetCartQuery({});
   const [placeOrder] = usePlaceOrderMutation();
+  const [updateProduct] = useUpdateProductMutation();
+  const [removeFromCart] = useRemoveFromCartMutation();
 
   useEffect(() => {
     if (!location.state) {
@@ -33,24 +43,55 @@ const Checkout: React.FC = () => {
       if (!paymentMethod) return; // Ensure a payment method is selected
 
       if (paymentMethod === 'Stripe') {
-        alert('This payment method is temporarily unavailable. Please choose another.');
+        Swal.fire('Error', 'This payment method is temporarily unavailable. Please choose another.', 'error');
         return;
       }
 
+      // Construct the order payload
+      const orderPayload = {
+        name,
+        email,
+        phone,
+        address,
+        paymentMethod,
+        totalPrice,
+        items: cartItems?.map((item:CartItem) => ({
+          productId: item.product._id,
+          quantity: item.quantity,
+          price: item.product.price,
+        }))
+      };
+
+      console.log('Order Payload:', orderPayload); // Add this line
+
       // Place order logic
-      const orderResult = await placeOrder({ name, email, phone, address, paymentMethod, totalPrice });
+      const orderResult = await placeOrder(orderPayload).unwrap();
       console.log('Order placed successfully:', orderResult);
 
+      // Update product quantities
+      if (cartItems) {
+        for (const item of cartItems) {
+          await updateProduct({
+            id: item.product._id,
+            quantity: item.product.quantity - item.quantity
+          }).unwrap();
+          Swal.fire("Success", "Your Order has been placed successfully", "success");
+          // Optionally, remove item from cart
+          await removeFromCart(item.product._id).unwrap();
+        }
+      }
+     
       // Redirect to success page or another confirmation page
       navigate('/success');
     } catch (error) {
       console.error('Failed to place order:', error);
+      Swal.fire('Error', 'Failed to place order. Please try again.', 'error');
     }
   };
 
   const handlePaymentMethodChange = (method: 'CashOnDelivery' | 'Stripe') => {
     if (method === 'Stripe') {
-      alert('This payment method is temporarily unavailable. Please choose another.');
+      Swal.fire('Error', 'This payment method is temporarily unavailable. Please choose another.', 'error');
     } else {
       setPaymentMethod(method);
     }

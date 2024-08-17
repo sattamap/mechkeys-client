@@ -27,7 +27,7 @@ interface IFormInput {
 }
 
 const UpdateProductModal: React.FC<UpdateProductModalProps> = ({ product, isOpen, onClose,onSuccess }) => {
-  const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>({
     defaultValues: {
       name: product.name,
       price: product.price,
@@ -37,12 +37,18 @@ const UpdateProductModal: React.FC<UpdateProductModalProps> = ({ product, isOpen
   const [updateProduct] = useUpdateProductMutation();
 
 
-  const onSubmit: SubmitHandler<IFormInput> = data => {
-    console.log('Updating product with id:', product._id); 
-    updateProduct({ id: product._id, ...data });
-    if (onSuccess) onSuccess(); 
-    onClose();
-};
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    updateProduct({ id: product._id, ...data })
+      .unwrap()
+      .then(() => {
+        if (onSuccess) onSuccess(); // Call the onSuccess callback if provided
+        reset();
+        onClose();
+      })
+      .catch((err) => {
+        console.error('Failed to update product:', err);
+      });
+  };
 
 
   return (
