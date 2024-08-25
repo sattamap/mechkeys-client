@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white py-16">
+    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-white py-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -33,8 +34,10 @@ const AboutUs: React.FC = () => {
           transition={{ delay: 1, duration: 1 }}
           className="mt-8"
         >
-          <Button className="bg-white text-purple-500 font-bold py-2 px-4 rounded-full">
+          <Button className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full">
+            <Link to='/contact-us'>
             Contact Us
+            </Link>
           </Button>
         </motion.div>
       </motion.div>
