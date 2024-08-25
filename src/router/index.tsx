@@ -8,7 +8,7 @@ import ProductDetails from "@/pages/ProductDetails/ProductDetails";
 import Products from "@/pages/Products/Products";
 import Success from "@/pages/Success/Success";
 
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import ProductList from "@/pages/Dashboard/ProductList";
 import AddProduct from "@/pages/Dashboard/AddProduct";
@@ -66,6 +66,7 @@ const router = createBrowserRouter([
         path: "add-product",
         element: <AddProduct />,
       },
+      { path: '', element: <Navigate to="product-list" /> },
     ],
   },
 ]);

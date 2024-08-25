@@ -51,7 +51,7 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
-      <Table>
+      <Table className='sm:ml-14'>
         <TableHeader>
           <TableRow>
             <TableHead>Product Name</TableHead>
@@ -68,7 +68,7 @@ const ProductList: React.FC = () => {
               <TableCell>{product.brand}</TableCell>
               <TableCell>
                 <Button size="xs" className='mr-1 mb-1' onClick={() => handleUpdate(product)}>Update</Button>
-                <Button size="xs" variant="destructive" onClick={() => handleDelete(product)}>Delete</Button>
+                <Button size="xs" className='px-[11px]' variant="destructive" onClick={() => handleDelete(product)}>Delete</Button>
               </TableCell>
             </TableRow>
           ))}
