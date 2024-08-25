@@ -36,7 +36,9 @@ const Featured: React.FC = () => {
   return (
     <section className="py-12 md:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="mb-6 text-3xl font-bold md:text-4xl text-center text-primary">Featured Products</h2>
+        <div className='bg-slate-200 w-1/2 mx-auto py-8 rounded-xl shadow-xl'>
+        <h2 className="text-3xl font-dancing font-extrabold md:text-4xl text-center text-primary">Featured Products</h2>
+        </div>
         <Swiper 
           spaceBetween={10}
           autoplay={{

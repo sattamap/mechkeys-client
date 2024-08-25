@@ -6,7 +6,7 @@ const Testimonials: React.FC = () => {
     <section className=" bg-slate-200 rounded-xl p-10 m-20 md:m-40">
       <div className="container  bg-white p-16 rounded-xl">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">What Our Customers Say</h2>
+          <h2 className="mb-6 text-3xl font-dancing font-bold md:text-4xl">What Our Customers Say</h2>
           <p className="mb-12 max-w-md text-center text-gray-500 dark:text-gray-400">
             Hear from our satisfied customers about their experience with our product.
           </p>

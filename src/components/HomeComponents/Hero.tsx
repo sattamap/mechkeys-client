@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import kbd from '../../assets/images/kbd-3.jpg';
-import { Button } from '@/components/ui/button';
-import Typewriter from 'typewriter-effect';
+import React from "react";
+import { Link } from "react-router-dom";
+import kbd from "../../assets/images/kbd-3.jpg";
+import { Button } from "@/components/ui/button";
+import Typewriter from "typewriter-effect";
+// import Lottie from "lottie-react";
+// import typing from "../../../typing.json";
 
 interface HeroProps {}
 
@@ -17,17 +19,24 @@ const Hero: React.FC<HeroProps> = () => {
           <h1 className="text-6xl md:text-5xl lg:text-6xl font-extrabold text-black p-4 animate-fade-in-up">
             Welcome to Our Platform
           </h1>
-          <div className='flex gap-1 justify-center text-xl md:text-2xl lg:text-3xl text-black font-bold'>
-          <p className="">
-            We provide 
-          </p>
-          <Typewriter
-                               options={{
-                                   strings: ['the best product for you','the best experience for you.','the best service for you'],
-                                   autoStart: true,
-                                   loop: true,
-                               }}
-                           /> 
+          <div className="flex gap-1 justify-center text-xl md:text-2xl lg:text-3xl text-black font-bold">
+            <p className="font-dancing">We provide</p>
+            <div className="font-dancing">
+              <Typewriter
+                options={{
+                  strings: [
+                    "the best product for you",
+                    "the best experience for you.",
+                    "the best service for you",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
+            {/* <div className="sm:disabled md:w-16 md:h-16">
+                <Lottie animationData={typing} loop={true} />
+            </div>  */}
           </div>
           <Link to="products">
             <Button

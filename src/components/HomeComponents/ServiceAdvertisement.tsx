@@ -4,7 +4,7 @@ const ServiceAdvertisement: React.FC = () => {
   return (
     <section className="mt-20 md:mx-20 rounded-xl py-4 md:py-8 bg-gradient-to-r from-gray-300 via-gray-400 to-gray-300">
       <div className="container mx-auto px-4">
-        <h2 className="mb-8 text-3xl md:text-4xl font-bold text-center text-gray-800">Our Services</h2>
+        <h2 className="mb-8 text-3xl md:text-4xl font-dancing font-bold text-center text-gray-800">Our Services</h2>
         <div className="flex flex-col md:flex-row justify-between gap-4">
           <ServiceCard
             title="Free Shipping"
@@ -46,8 +46,8 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, gradient, animation }) => {
   return (
     <div className={`p-6 rounded-lg shadow-md bg-gradient-to-r ${gradient} ${animation} flex-1`}>
-      <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
-      <p className="text-sm text-white mb-4">{description}</p>
+      <h3 className="text-xl font-dancing font-bold mb-2 text-white">{title}</h3>
+      <p className="text-sm text-black mb-4">{description}</p>
     </div>
   );
 };

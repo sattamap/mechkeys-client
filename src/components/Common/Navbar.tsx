@@ -10,6 +10,7 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store"; // Adjust the import path
 import { Badge } from "../ui/badge";
+import logo from "../../assets/logo.png";
 
 interface IconProps {
   className?: string;
@@ -31,8 +32,9 @@ const Navbar: React.FC = () => {
         </SheetTrigger>
         <SheetContent side="left">
           <Link to="/" className="flex items-center">
-            <MountainIcon className="h-6 w-6 text-primary" />
-            <span className="sr-only">MechKeys</span>
+            {/* <MountainIcon className="h-6 w-6 text-primary" />
+            <span className="sr-only">MechKeys</span> */}
+              <img src={logo} alt="logo"  className="w-4/5"/>
           </Link>
           <div className="grid gap-2 py-6">
             {['Home', 'Products', 'Carts', 'About Us', 'Contact Us', 'Dashboard'].map((page) => (
@@ -48,8 +50,9 @@ const Navbar: React.FC = () => {
         </SheetContent>
       </Sheet>
       <Link to="/" className="ml-4 flex items-center">
-        <MountainIcon className="h-6 w-6 text-primary" />
-        <span className="ml-2 text-xl font-bold text-primary">MechKeys</span>
+      <img src={logo} alt="logo"  className="w-4/5"/>
+        {/* <MountainIcon className="h-6 w-6 text-primary" />
+        <span className="ml-2 text-xl font-bold text-primary">MechKeys</span> */}
       </Link>
       <div className="flex w-full justify-center">
         <NavigationMenu className="hidden lg:flex">
@@ -59,7 +62,7 @@ const Navbar: React.FC = () => {
                 <NavLink
                   to={page === 'Home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '-')}`}
                   className={({ isActive }) =>
-                    `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+                    `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-semibold transition-colors ${
                       isActive
                         ? "bg-gray-100 text-primary"
                         : "bg-white text-dark hover:bg-gray-100 hover:text-primary"
@@ -104,22 +107,22 @@ const MenuIcon: React.FC<IconProps> = (props) => (
   </svg>
 );
 
-const MountainIcon: React.FC<IconProps> = (props) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-  </svg>
-);
+// const MountainIcon: React.FC<IconProps> = (props) => (
+//   <svg
+//     {...props}
+//     xmlns="http://www.w3.org/2000/svg"
+//     width="24"
+//     height="24"
+//     viewBox="0 0 24 24"
+//     fill="none"
+//     stroke="currentColor"
+//     strokeWidth="2"
+//     strokeLinecap="round"
+//     strokeLinejoin="round"
+//   >
+//     <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+//   </svg>
+// );
 
 const CartIcon: React.FC<IconProps> = (props) => (
   <svg
