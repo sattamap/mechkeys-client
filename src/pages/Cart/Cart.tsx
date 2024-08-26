@@ -29,6 +29,21 @@ const Cart: React.FC = () => {
     refetch();
   }, [refetch]);
 
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (cartItems.length > 0) {
+        event.preventDefault();
+        event.returnValue = '';
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [cartItems]);
+
   const handleRemoveItem = async (productId: string) => {
     console.log(`Removing item with productId: ${productId}`);
     await removeFromCart(productId);

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import { debounce } from 'lodash'; // Import debounce from lodash
 import { useNavigate } from 'react-router-dom';
 import { useGetProductsQuery } from '@/redux/api/api';
 import {
@@ -30,15 +31,17 @@ const Products: React.FC = () => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [sort, setSort] = useState('');
-  const { data: products = [], isLoading } = useGetProductsQuery({
-    search,
-    brand,
-    minPrice,
-    maxPrice,
-    sort,
-  });
+  
+  // Debounced API call
+  const debouncedSearch = useCallback(
+    debounce((value: string) => setSearch(value), 200), 
+    []
+  );
 
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value);
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debouncedSearch(e.target.value);
+  };
+
   const handleBrandChange = (e: React.ChangeEvent<HTMLInputElement>) => setBrand(e.target.value);
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => setMinPrice(e.target.value);
   const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => setMaxPrice(e.target.value);
@@ -50,6 +53,14 @@ const Products: React.FC = () => {
     setMaxPrice('');
     setSort('');
   };
+
+  const { data: products = [], isLoading } = useGetProductsQuery({
+    search,
+    brand,
+    minPrice,
+    maxPrice,
+    sort,
+  });
 
   if (isLoading) {
     return <div>Loading...</div>;
