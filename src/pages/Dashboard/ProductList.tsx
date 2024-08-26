@@ -8,6 +8,8 @@ import { useGetProductsQuery, useDeleteProductMutation,  } from '@/redux/api/api
 interface Product {
   _id: string;
   name: string;
+  quantity: number;
+  stock: string;
   price: number;
   brand: string;
   // Add other properties if necessary
@@ -56,6 +58,8 @@ const ProductList: React.FC = () => {
           <TableRow>
             <TableHead>Sl. No.</TableHead>
             <TableHead>Product Name</TableHead>
+            <TableHead >Available Items</TableHead>
+            <TableHead  >Stock Status</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Brand</TableHead>
             <TableHead>Actions</TableHead>
@@ -66,6 +70,10 @@ const ProductList: React.FC = () => {
             <TableRow key={product._id}>
               <TableCell>{index+1}</TableCell>
               <TableCell>{product.name}</TableCell>
+              <TableCell>{product.quantity}</TableCell>
+              <TableCell  className={
+                product.stock === 'In Stock' ? 'text-green-500' : 'text-red-500'
+              }>{product.stock}</TableCell>
               <TableCell>{product.price}</TableCell>
               <TableCell>{product.brand}</TableCell>
               <TableCell>
