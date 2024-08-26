@@ -20,6 +20,7 @@ const Navbar: React.FC = () => {
   const cartItemCount = useSelector((state: RootState) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   );
+  
 
   return (
     <header className="flex h-24 w-full items-center px-4 md:px-6 sticky top-0 z-30 bg-white shadow-md">
@@ -48,11 +49,7 @@ const Navbar: React.FC = () => {
             ].map((page) => (
               <NavLink
                 key={page}
-                to={
-                  page === "home"
-                    ? "/"
-                    : `/${page.toLowerCase().replace(/\s+/g, "-")}`
-                }
+                to={page.toLowerCase() === "home" ? "/" : `/${page.toLowerCase().replace(/\s+/g, "-")}`}
                 className="flex w-full items-center py-2 text-lg font-semibold text-primary"
               >
                 {page}
