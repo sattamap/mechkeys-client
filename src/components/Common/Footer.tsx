@@ -18,22 +18,22 @@ const Footer: React.FC = () => {
           </div>
           <div className="grid gap-1">
             <h3 className="font-semibold">Company</h3>
-            <Link to="/about">About</Link>
+            <Link to="/about-us">About</Link>
             <Link to="/careers">Careers</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact-us">Contact</Link>
           </div>
           <div className="grid gap-1">
             <h3 className="font-semibold">Resources</h3>
             <Link to="/blog">Blog</Link>
             <Link to="/documentation">Documentation</Link>
             <Link to="/tutorials">Tutorials</Link>
-            <Link to="/support">Support</Link>
+            <Link to="/contact-us">Support</Link>
           </div>
-          <div className="grid gap-1">
+          <div className="grid gap-0">
             <h3 className="font-semibold">Social</h3>
-            <Link to="/twitter">Twitter</Link>
-            <Link to="/facebook">Facebook</Link>
-            <Link to="/linkedin">LinkedIn</Link>
+            <Link to="https://www.facebook.com/sattam.chakma/">Facebook</Link>
+            <Link to="https://www.instagram.com/sattamchakma/">Instagram</Link>
+            <Link to="https://www.linkedin.com/in/sattam-chakma/">LinkedIn</Link>
           </div>
         </div>
         <div className="text-center mt-12 text-gray-600 dark:text-gray-400">

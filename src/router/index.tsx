@@ -14,6 +14,7 @@ import ProductList from "@/pages/Dashboard/ProductList";
 import AddProduct from "@/pages/Dashboard/AddProduct";
 import AboutUs from "@/pages/AboutUs/AboutUs";
 import ContactUs from "@/pages/ContactUs/ContactUs";
+import ComingSoon from "@/components/Common/ComingSoon";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,22 @@ const router = createBrowserRouter([
       {
         path: "contact-us",
         element: <ContactUs />,
+      },
+      {
+        path: "blog",
+        element: <ComingSoon/>,
+      },
+      {
+        path: "tutorials",
+        element: <ComingSoon />,
+      },
+      {
+        path: "documentation",
+        element: <ComingSoon/>,
+      },
+      {
+        path: "careers",
+        element: <ComingSoon/>,
       },
     ],
   },
