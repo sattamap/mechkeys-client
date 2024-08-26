@@ -23,7 +23,7 @@ const ContactUs: React.FC = () => {
     };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-white py-16">
+    <div className="min-h-screen bg-gradient-to-r from-gray-800 via-slate-700 to-gray-600 text-white py-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}

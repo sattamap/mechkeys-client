@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-white py-16">
+    <div className="min-h-screen bg-gradient-to-r from-gray-800 via-slate-700 to-gray-600 text-white py-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,6 +25,9 @@ const AboutUs: React.FC = () => {
             Our team is passionate about mechanical keyboards and is committed to delivering exceptional customer service. We carefully curate our collection to ensure that every product meets our high standards of quality and performance.
           </p>
           <p className="text-lg text-justify mb-8">
+            We also offer customization services, allowing you to personalize your keyboard to match your style and preferences. From keycaps to switches, we provide a wide range of options to make your keyboard truly unique.
+          </p>
+          <p className="text-lg text-justify mb-8">
             Thank you for choosing us as your go-to source for mechanical keyboards. We look forward to serving you and helping you find the perfect keyboard for your needs.
           </p>
         </motion.div>
@@ -34,9 +37,9 @@ const AboutUs: React.FC = () => {
           transition={{ delay: 1, duration: 1 }}
           className="mt-8"
         >
-          <Button className="bg-white text-blue-500 font-bold py-2 px-4 rounded-full">
+          <Button className="bg-white text-gray-800 font-bold py-2 px-4 rounded-full">
             <Link to='/contact-us'>
-            Contact Us
+              Contact Us
             </Link>
           </Button>
         </motion.div>
