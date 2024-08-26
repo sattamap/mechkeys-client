@@ -52,31 +52,31 @@ const ProductList: React.FC = () => {
   if (error) return <div>Error loading products</div>;
 
   return (
-    <div>
-      <Table className='sm:ml-14'>
+    <div >
+      <Table className='w-5/6 mx-auto'>
         <TableHeader>
           <TableRow>
-            <TableHead>Sl. No.</TableHead>
-            <TableHead>Product Name</TableHead>
-            <TableHead >Available Items</TableHead>
-            <TableHead  >Stock Status</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Brand</TableHead>
-            <TableHead>Actions</TableHead>
+            <TableHead className='text-center text-base font-bold'>Sl. No.</TableHead>
+            <TableHead className='text-center text-base font-bold'>Product Name</TableHead>
+            <TableHead className='text-center text-base font-bold'>Available Items</TableHead>
+            <TableHead className='text-center text-base font-bold'>Stock Status</TableHead>
+            <TableHead className='text-center text-base font-bold'>Price</TableHead>
+            <TableHead className='text-center text-base font-bold'>Brand</TableHead>
+            <TableHead className='text-center text-base font-bold'>Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {products.map((product: Product,index: number) => (
             <TableRow key={product._id}>
-              <TableCell>{index+1}</TableCell>
-              <TableCell>{product.name}</TableCell>
-              <TableCell>{product.quantity}</TableCell>
+              <TableCell className='text-center'>{index+1}</TableCell>
+              <TableCell className='text-center'>{product.name}</TableCell>
+              <TableCell className='text-center'>{product.quantity}</TableCell>
               <TableCell  className={
-                product.stock === 'In Stock' ? 'text-green-500' : 'text-red-500'
+                product.stock === 'In Stock' ? 'text-green-500 text-center' : 'text-red-500 text-center'
               }>{product.stock}</TableCell>
-              <TableCell>{product.price}</TableCell>
-              <TableCell>{product.brand}</TableCell>
-              <TableCell>
+              <TableCell className='text-center'>{product.price}</TableCell>
+              <TableCell className='text-center'>{product.brand}</TableCell>
+              <TableCell className='text-center'>
                 <Button size="xs" className='mr-1 mb-1' onClick={() => handleUpdate(product)}>Update</Button>
                 <Button size="xs" className='px-[11px]' variant="destructive" onClick={() => handleDelete(product)}>Delete</Button>
               </TableCell>
