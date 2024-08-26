@@ -4,6 +4,9 @@
 
 Mechanical Keyboard Shop is a comprehensive e-commerce website exclusively for mechanical keyboards, built using React, Redux, Mongoose, and Express. This project offers easy product browsing, detailed product pages, a smooth cart system, and robust tools for product management. It includes advanced features like fast search, page refresh warnings, filtering, and optional integration with Stripe for secure payments. The website aims to create a modern and user-friendly online store for mechanical keyboard enthusiasts.
 
+## Live Demo
+Check out the live version of the site here: [Mechanical Keyboard Shop](https://mechkeys-client.vercel.app/)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -84,15 +87,30 @@ Mechanical Keyboard Shop is a comprehensive e-commerce website exclusively for m
 ### Prerequisites
 - Node.js and npm installed on your machine.
 
-### Installation
-
+## Installation
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/mechanical-keyboard-shop.git
+    ```bash
+    git clone https://github.com/sattamap/mechkeys-client.git
+    
+    cd mechkeys-client
+    ```
 
-   cd mechanical-keyboard-shop
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-   npm install
+3. Run the development server:
+    ```bash
+    npm run dev
+    ```
 
-   npm run dev
-   ```
+4. Build the project for production:
+    ```bash
+    npm run build
+    ```
+
+5. Preview the production build:
+    ```bash
+    npm run preview
+    ```
