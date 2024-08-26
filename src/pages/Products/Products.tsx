@@ -118,8 +118,8 @@ const Products: React.FC = () => {
             </CardHeader>
             <div className="h-56 overflow-hidden">
               <img
-                src={product.image}
-                alt={product.name}
+                src={product?.image}
+                alt={product?.name}
                 className="mx-auto object-cover border rounded-lg h-full w-5/6 transition-transform duration-300 group-hover:scale-125"
               />
             </div>

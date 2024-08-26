@@ -1,30 +1,98 @@
-# React + TypeScript + Vite
+# Mechanical Keyboard Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Mechanical Keyboard Shop is a comprehensive e-commerce website exclusively for mechanical keyboards, built using React, Redux, Mongoose, and Express. This project offers easy product browsing, detailed product pages, a smooth cart system, and robust tools for product management. It includes advanced features like fast search, page refresh warnings, filtering, and optional integration with Stripe for secure payments. The website aims to create a modern and user-friendly online store for mechanical keyboard enthusiasts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Core Pages and Functionalities](#core-pages-and-functionalities)
+- [Installation and Setup](#installation-and-setup)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Responsive design optimized for all devices.
+- Easy product browsing with search and filtering options.
+- Detailed product pages with product information, rating, and description.
+- Smooth cart system with quantity management and real-time pricing updates.
+- Checkout with user details collection and multiple payment methods.
+- Admin dashboard for product management with add, update, and delete functionalities.
+- Integration with Stripe for secure payments.
+- Attractive and informative pages like About Us and Contact Us.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Technology Stack
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Frontend**: React with Vite, TypeScript, Redux, RTK Query, Tailwind CSS
+- **Backend**: Node.js, Express, Mongoose
+- **Database**: MongoDB
+- **Other Tools and Libraries**:
+  - `react-hook-form`, `zod` for form validation
+  - `styled-components` for styled UI components
+  - `framer-motion` for animations
+  - `swiper` for carousel components
+  - `sweetalert2` for alert dialogs
+  - `ImgBB` for image upload
+
+## Core Pages and Functionalities
+
+### 1. Homepage / Landing Page
+- **Navbar**: Logo, navigation links, and cart icon with item count.
+- **Hero Section**: Visually appealing section showcasing the brand.
+- **Service Advertisement**: Advertise benefits and services.
+- **Featured Products**: Display 6 latest products with details and navigation to the Product Details page.
+- **Top Featured Brands**: Display popular keyboard brands.
+- **Customer Reviews**: Display testimonials in a carousel.
+- **Extra Sections**: Information on mechanical keyboards and customizable options.
+- **Footer**: Contact information and social media links.
+
+### 2. Products Page
+- Display all products in card view with image, name, brand, price, and rating.
+- Search bar and filtering options for easy product discovery.
+- Sorting options and a clear filter button.
+
+### 3. Product Details Page
+- Display product information with an "Add to Cart" button.
+- Quantity management and out-of-stock handling.
+
+### 4. Cart Page
+- List all added products with quantity controls and remove option.
+- Real-time pricing updates and a "Proceed to Checkout" button.
+
+### 5. Checkout Page
+- Collect user details like name, email, phone number, and address.
+- Provide payment options including Cash on Delivery and Stripe.
+- Deduct quantities from product stock upon successful order placement.
+
+### 6. Product Management/Dashboard Page
+- Display products in a table with update and delete options.
+- Add new products using a form with image upload.
+- Real-time UI updates with optimistic updates.
+
+### 7. About Us Page
+- An attractive page with basic animations and gradients.
+
+### 8. Contact Us Page
+- Detailed contact information and a form to encourage feedback.
+
+## Installation and Setup
+
+### Prerequisites
+- Node.js and npm installed on your machine.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/mechanical-keyboard-shop.git
+
+   cd mechanical-keyboard-shop
+
+   npm install
+
+   npm run dev
+   ```
