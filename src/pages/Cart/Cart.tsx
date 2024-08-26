@@ -94,11 +94,11 @@ const Cart: React.FC = () => {
                     <div>
                       <p className="text-lg font-semibold">${item.product.price}</p>
                       <div className="flex items-center">
-                        <Button onClick={() => handleUpdateQuantity(item.productId, item.quantity - 1, item.product.quantity)}>-</Button>
+                        <Button size='xs' onClick={() => handleUpdateQuantity(item.productId, item.quantity - 1, item.product.quantity)}>-</Button>
                         <p className="mx-2">{item.quantity}</p>
-                        <Button onClick={() => handleUpdateQuantity(item.productId, item.quantity + 1, item.product.quantity)}>+</Button>
+                        <Button size='xs' onClick={() => handleUpdateQuantity(item.productId, item.quantity + 1, item.product.quantity)}>+</Button>
                       </div>
-                      <Button onClick={() => handleRemoveItem(item.productId)} className="mt-2">Remove</Button>
+                      <Button size='xs' onClick={() => handleRemoveItem(item.productId)} className="mt-2">Remove</Button>
                     </div>
                   </div>
                 </CardContent>

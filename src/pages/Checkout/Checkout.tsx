@@ -93,12 +93,12 @@ const Checkout: React.FC = () => {
     if (method === 'Stripe') {
       Swal.fire('Error', 'This payment method is temporarily unavailable. Please choose another.', 'error');
     } else {
-      setPaymentMethod(method);
+      setPaymentMethod((prevMethod) => (prevMethod === method ? '' : method));
     }
   };
 
   return (
-    <div className="p-6">
+    <div className="w-2/3 p-6 mx-auto">
       <h2 className="text-2xl font-semibold mb-4">Checkout</h2>
       <p>Total amount: ${totalPrice.toFixed(2)}</p>
       <form onSubmit={handlePlaceOrder}>
@@ -156,14 +156,14 @@ const Checkout: React.FC = () => {
         <div className="flex items-center mb-4">
           <p className="mr-4">Choose Payment Method:</p>
           <Button
-            className={`mr-4 ${paymentMethod === 'CashOnDelivery' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`mr-4 ${paymentMethod === 'CashOnDelivery' ? 'bg-blue-500 text-white' : 'bg-slate-400'}`}
             onClick={() => handlePaymentMethodChange('CashOnDelivery')}
             type="button"
           >
             Cash on Delivery
           </Button>
           <Button
-            className={`mr-4 ${paymentMethod === 'Stripe' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`mr-4 ${paymentMethod === 'Stripe' ? 'bg-blue-500 text-white' : 'bg-slate-400'}`}
             onClick={() => handlePaymentMethodChange('Stripe')}
             type="button"
           >
