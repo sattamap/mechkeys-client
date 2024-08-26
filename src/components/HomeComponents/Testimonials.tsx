@@ -3,18 +3,20 @@ import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext
 
 const Testimonials: React.FC = () => {
   return (
-    <section className=" bg-slate-200 rounded-xl p-10 m-20 md:m-40">
-      <div className="container  bg-white p-16 rounded-xl">
+    <section className="bg-slate-200 rounded-xl p-6 md:p-10 md:m-20 m-6">
+      <div className="container bg-white p-8 md:p-16 rounded-xl">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="mb-6 text-3xl font-dancing font-bold md:text-4xl">What Our Customers Say</h2>
-          <p className="mb-12 max-w-md text-center text-gray-500 dark:text-gray-400">
+          <h2 className="mb-4 text-2xl font-dancing font-bold md:text-4xl text-center">
+            What Our Customers Say
+          </h2>
+          <p className="mb-8 md:mb-12 max-w-xs md:max-w-md text-center text-gray-500 dark:text-gray-400">
             Hear from our satisfied customers about their experience with our product.
           </p>
-          <Carousel className="w-full max-w-3xl">
+          <Carousel className="w-full max-w-md md:max-w-3xl">
             <CarouselContent>
               <CarouselItem>
-                <div className="flex flex-col items-center justify-center space-y-6 p-6 md:p-12">
-                  <blockquote className="text-center text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200 md:text-2xl">
+                <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 p-4 md:p-12">
+                  <blockquote className="text-center text-lg md:text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200">
                     &quot;The customer service I received was exceptional. The support team went above and beyond to address my concerns.&quot;
                   </blockquote>
                   <div className="text-center">
@@ -24,8 +26,8 @@ const Testimonials: React.FC = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="flex flex-col items-center justify-center space-y-6 p-6 md:p-12">
-                  <blockquote className="text-center text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200 md:text-2xl">
+                <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 p-4 md:p-12">
+                  <blockquote className="text-center text-lg md:text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200">
                     &quot;I was hesitant at first, but the onboarding process was so smooth and the platform has been a game-changer for my business.&quot;
                   </blockquote>
                   <div className="text-center">
@@ -35,8 +37,8 @@ const Testimonials: React.FC = () => {
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="flex flex-col items-center justify-center space-y-6 p-6 md:p-12">
-                  <blockquote className="text-center text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200 md:text-2xl">
+                <div className="flex flex-col items-center justify-center space-y-4 md:space-y-6 p-4 md:p-12">
+                  <blockquote className="text-center text-lg md:text-xl font-medium leading-relaxed text-gray-800 dark:text-gray-200">
                     &quot;The features are top-notch, and the team is always responsive and helpful. I couldn&apos;t be happier with my decision to use this product.&quot;
                   </blockquote>
                   <div className="text-center">
@@ -46,11 +48,11 @@ const Testimonials: React.FC = () => {
                 </div>
               </CarouselItem>
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
-              <ChevronLeftIcon className="h-8 w-8" />
+            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-1 md:p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
+              <ChevronLeftIcon className="h-6 w-6 md:h-8 md:w-8" />
             </CarouselPrevious>
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
-              <ChevronRightIcon className="h-8 w-8" />
+            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/50 p-1 md:p-2 text-black shadow-md transition-colors hover:bg-white dark:bg-gray-950/50 dark:text-gray-200 dark:hover:bg-gray-950">
+              <ChevronRightIcon className="h-6 w-6 md:h-8 md:w-8" />
             </CarouselNext>
           </Carousel>
         </div>

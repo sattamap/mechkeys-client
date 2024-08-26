@@ -32,15 +32,27 @@ const Navbar: React.FC = () => {
         </SheetTrigger>
         <SheetContent side="left">
           <Link to="/" className="flex items-center">
-            {/* <MountainIcon className="h-6 w-6 text-primary" />
-            <span className="sr-only">MechKeys</span> */}
-              <img src={logo} alt="logo"  className="w-4/5"/>
+            <img src={logo} alt="logo" className="w-12" />
+            <p className="ml-2 text-xl font-bold text-primary">
+              Mech<span className="text-cyan-500">Keys</span>
+            </p>
           </Link>
           <div className="grid gap-2 py-6">
-            {['Home', 'Products', 'Carts', 'About Us', 'Contact Us', 'Dashboard'].map((page) => (
-                <NavLink
+            {[
+              "Home",
+              "Products",
+              "Carts",
+              "About Us",
+              "Contact Us",
+              "Dashboard",
+            ].map((page) => (
+              <NavLink
                 key={page}
-                to={page === 'home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '-')}`}
+                to={
+                  page === "home"
+                    ? "/"
+                    : `/${page.toLowerCase().replace(/\s+/g, "-")}`
+                }
                 className="flex w-full items-center py-2 text-lg font-semibold text-primary"
               >
                 {page}
@@ -50,17 +62,29 @@ const Navbar: React.FC = () => {
         </SheetContent>
       </Sheet>
       <Link to="/" className="ml-4 flex items-center">
-      <img src={logo} alt="logo"  className="w-4/5"/>
-        {/* <MountainIcon className="h-6 w-6 text-primary" />
-        <span className="ml-2 text-xl font-bold text-primary">MechKeys</span> */}
+        <img src={logo} alt="logo" className="w-12" />
+        <p className="ml-2 text-xl font-bold text-primary">
+          Mech<span className="text-cyan-500">Keys</span>
+        </p>
       </Link>
       <div className="flex w-full justify-center">
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList>
-            {['Home', 'Products', 'Carts', 'About Us', 'Contact Us', 'Dashboard'].map((page) => (
+            {[
+              "Home",
+              "Products",
+              "Carts",
+              "About Us",
+              "Contact Us",
+              "Dashboard",
+            ].map((page) => (
               <NavigationMenuLink asChild key={page}>
                 <NavLink
-                  to={page === 'Home' ? '/' : `/${page.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={
+                    page === "Home"
+                      ? "/"
+                      : `/${page.toLowerCase().replace(/\s+/g, "-")}`
+                  }
                   className={({ isActive }) =>
                     `group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-base font-semibold transition-colors ${
                       isActive

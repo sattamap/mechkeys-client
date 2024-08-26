@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const Footer: React.FC = () => {
   return (
@@ -9,8 +10,10 @@ const Footer: React.FC = () => {
         <div className="container mx-auto max-w-7xl grid grid-cols-1 gap-8 px-4 text-sm sm:grid-cols-2 md:grid-cols-4">
           <div className="flex items-center gap-4">
             <Link to="/" className="flex items-center gap-2">
-              <MountainIcon className="h-6 w-6" />
-              <span className="font-semibold">MechKeys</span>
+            <img src={logo} alt="logo" className="w-12" />
+            <p className="ml-2 text-xl font-bold text-primary">
+              Mech<span className="text-cyan-500">Keys</span>
+            </p>
             </Link>
           </div>
           <div className="grid gap-1">
@@ -41,25 +44,6 @@ const Footer: React.FC = () => {
   );
 };
 
-type IconProps = React.SVGProps<SVGSVGElement>;
 
-const MountainIcon: React.FC<IconProps> = (props) => {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  );
-};
 
 export default Footer;
