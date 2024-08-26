@@ -91,7 +91,7 @@ Check out the live version of the site here: [Mechanical Keyboard Shop](https://
 1. Clone the repository:
     ```bash
     git clone https://github.com/sattamap/mechkeys-client.git
-    
+
     cd mechkeys-client
     ```
 
@@ -114,3 +114,5 @@ Check out the live version of the site here: [Mechanical Keyboard Shop](https://
     ```bash
     npm run preview
     ```
+
+This `README.md` file covers the essential aspects of your project, including its features, technology stack, core pages, installation, and usage instructions. Feel free to customize it further to suit your needs.
