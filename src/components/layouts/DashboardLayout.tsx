@@ -132,6 +132,9 @@ const DashboardLayout: React.FC = () => {
                   <Link to="/contact-us">Contact</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
+                  <Link to="/about-us">About Us</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link to="/">Logout</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

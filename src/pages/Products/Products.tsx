@@ -99,7 +99,7 @@ const Products: React.FC = () => {
         {products.map((product: Product) => (
           <Card
             key={product._id}
-            className="shadow-lg group transition-transform duration-300 hover:scale-105"
+            className="shadow-lg group transition-transform "
           >
             <CardHeader>
               <CardTitle>{product.name}</CardTitle>
@@ -127,7 +127,7 @@ const Products: React.FC = () => {
               </p>
             </CardContent>
             <CardFooter>
-              <Button onClick={() => navigate(`/product/${product._id}`)}>
+              <Button onClick={() => navigate(`/product/${product._id}`)} className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-black to-slate-700 text-white font-medium rounded hover:from-gray-800 hover:to-slate-600">
                 Show Details
               </Button>
             </CardFooter>

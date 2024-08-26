@@ -1,14 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useGetProductsQuery } from '@/redux/api/api';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { useGetProductsQuery } from "@/redux/api/api";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 
 // import required modules
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from "swiper/modules";
 import {
   Card,
   CardHeader,
@@ -31,15 +31,20 @@ interface Product {
 
 const Featured: React.FC = () => {
   const { data: products } = useGetProductsQuery({});
-  const featuredProducts = products?.filter((product: Product) => product.rating > 3).slice(-6).reverse();
+  const featuredProducts = products
+    ?.filter((product: Product) => product.rating > 3)
+    .slice(-6)
+    .reverse();
 
   return (
     <section className="py-12 md:py-24">
       <div className="container mx-auto px-4">
-        <div className='bg-slate-200 w-1/2 mx-auto py-8 rounded-xl shadow-xl'>
-        <h2 className="text-3xl font-dancing font-extrabold md:text-4xl text-center text-primary">Featured Products</h2>
+        <div className="bg-slate-200 w-1/2 mx-auto py-8 rounded-xl shadow-xl">
+          <h2 className="text-3xl font-dancing font-extrabold md:text-4xl text-center text-primary">
+            Featured Products
+          </h2>
         </div>
-        <Swiper 
+        <Swiper
           spaceBetween={10}
           autoplay={{
             delay: 2500,
@@ -51,41 +56,58 @@ const Featured: React.FC = () => {
           }}
           loop={true}
           breakpoints={{
-            '@0.00': {
+            "@0.00": {
               slidesPerView: 1,
               spaceBetween: 10,
             },
-            '@0.75': {
+            "@0.75": {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            '@1.00': {
+            "@1.00": {
               slidesPerView: 3,
               spaceBetween: 40,
             },
-            '@1.50': {
+            "@1.50": {
               slidesPerView: 4,
               spaceBetween: 50,
             },
           }}
-          modules={[Autoplay,Pagination]}
+          modules={[Autoplay, Pagination]}
           className="mySwiper mt-20"
         >
           {featuredProducts?.map((product: Product) => (
             <SwiperSlide key={product._id}>
               <Card className="bg-white p-1 rounded-lg shadow-md">
                 <CardHeader>
-                  <img src={product.image} alt={product.name} className="w-full h-48 object-cover mb-4 rounded-lg" />
-                  <CardTitle className="text-sm font-bold mb-2">{product.name}</CardTitle>
-                  <CardDescription className="text-sm text-gray-500 mb-1">Brand: {product.brand}</CardDescription>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 object-cover mb-4 rounded-lg"
+                  />
+                  <CardTitle className="text-sm font-bold mb-2">
+                    {product.name}
+                  </CardTitle>
+                  <CardDescription className="text-sm text-gray-500 mb-1">
+                    Brand: {product.brand}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-gray-500 mb-1">Available Quantity: {product.quantity}</p>
-                  <p className="text-sm text-gray-500 mb-1">Price: ${product.price}</p>
-                  <p className="text-sm text-gray-500 mb-1">Rating: {Array.from({ length: product.rating }, () => '⭐')}</p>
+                  <p className="text-sm text-gray-500 mb-1">
+                    Available Quantity: {product.quantity}
+                  </p>
+                  <p className="text-sm text-gray-500 mb-1">
+                    Price: ${product.price}
+                  </p>
+                  <p className="text-sm text-gray-500 mb-1">
+                    Rating: {Array.from({ length: product.rating }, () => "⭐")}
+                  </p>
                 </CardContent>
                 <CardFooter>
-                  <Link to={`/product/${product._id}`} className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded hover:from-purple-600 hover:to-pink-600">
+                  <Link
+                    to={`/product/${product._id}`}
+                    className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-black to-slate-700 text-white font-medium rounded hover:from-gray-800 hover:to-slate-600"
+                  >
                     See Details
                   </Link>
                 </CardFooter>
@@ -95,7 +117,7 @@ const Featured: React.FC = () => {
         </Swiper>
         <div className="text-center mt-12">
           <Link to="/products">
-            <Button className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold rounded hover:from-purple-600 hover:to-pink-600">
+            <Button className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-black to-slate-700 text-white font-medium rounded hover:from-gray-800 hover:to-slate-600">
               See More
             </Button>
           </Link>

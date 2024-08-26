@@ -54,6 +54,7 @@ const ProductList: React.FC = () => {
       <Table className='sm:ml-14'>
         <TableHeader>
           <TableRow>
+            <TableHead>Sl. No.</TableHead>
             <TableHead>Product Name</TableHead>
             <TableHead>Price</TableHead>
             <TableHead>Brand</TableHead>
@@ -61,8 +62,9 @@ const ProductList: React.FC = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products.map((product: Product) => (
+          {products.map((product: Product,index: number) => (
             <TableRow key={product._id}>
+              <TableCell>{index+1}</TableCell>
               <TableCell>{product.name}</TableCell>
               <TableCell>{product.price}</TableCell>
               <TableCell>{product.brand}</TableCell>
