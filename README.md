@@ -5,7 +5,7 @@
 Mechanical Keyboard Shop is a comprehensive e-commerce website exclusively for mechanical keyboards, built using React, Redux, Mongoose, and Express. This project offers easy product browsing, detailed product pages, a smooth cart system, and robust tools for product management. It includes advanced features like fast search, page refresh warnings, filtering, and optional integration with Stripe for secure payments. The website aims to create a modern and user-friendly online store for mechanical keyboard enthusiasts.
 
 ## Live Demo
-Check out the live version of the site here: [Mechanical Keyboard Shop](https://mechkeys-client.vercel.app/)
+Check out the live version of the site here: [Mechanical Keyboard Shop](https://mechkeys.web.app/)
 
 ## Table of Contents
 
