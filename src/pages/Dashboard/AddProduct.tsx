@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useAppDispatch } from "@/redux/hook";
-import { baseApi } from "@/redux/api/api";
+import { baseApi} from "@/redux/api/api";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -51,6 +51,7 @@ const FormSchema = z.object({
 const AddProduct: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -91,8 +92,9 @@ const AddProduct: React.FC = () => {
           icon: "success",
           confirmButtonText: "OK",
         });
-
-        navigate("/dashboard"); // Redirect to the dashboard after successful submission
+        
+        navigate("/dashboard", { state: { productAdded: true } });
+ // Redirect to the dashboard after successful submission
       } else {
         throw new Error("Image upload failed");
       }

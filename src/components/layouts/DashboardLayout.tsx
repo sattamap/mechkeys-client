@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import {
   TooltipProvider,
@@ -14,13 +14,23 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 import icon from '@/assets/icon.png';
+import { useGetProductsQuery } from '@/redux/api/api';
 
 const DashboardLayout: React.FC = () => {
   const location = useLocation();
+  const { state } = location;
+  const { refetch } = useGetProductsQuery({}); // Assuming you have a refetch method available here
 
-  // Determine if the current path matches the route
+  // Check if the current path matches the route
   const isActive = (path: string) => location.pathname === path;
 
+  useEffect(() => {
+    // Refetch products if a new product has been added
+    if (state?.productAdded) {
+      refetch();
+    }
+  }, [state, refetch]);
+  
   return (
     <div className="flex min-h-screen w-full flex-col bg-muted/40">
       {/* Sidebar hidden on small screens */}
